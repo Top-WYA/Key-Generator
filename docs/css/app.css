@@ -1,0 +1,167 @@
+html,
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.mobile-container {
+    padding-top: 1rem;
+    max-width: 100% !important;
+}
+
+/* Telegram WebApp mimics */
+:root {
+    --tg-theme-bg-color: #ffffff;
+    --tg-theme-text-color: #000000;
+    --tg-theme-hint-color: #999999;
+    --tg-theme-link-color: #2481cc;
+    --tg-theme-button-color: #eeb250;
+    /* User requested color */
+    --tg-theme-button-text-color: #ffffff;
+    --tg-theme-secondary-bg-color: #f0f2f5;
+}
+
+body {
+    background-color: var(--tg-theme-secondary-bg-color, #f0f2f5);
+    color: var(--tg-theme-text-color, #000000);
+}
+
+/* Card Styling */
+.card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+.card-header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #f0f0f0;
+    font-weight: 600;
+    padding: 1rem;
+    color: #333;
+}
+
+/* Custom Primary Button (Gold/Orange) */
+.btn-primary,
+.btn-success {
+    background-color: var(--tg-theme-button-color, #eeb250) !important;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    font-weight: 600;
+    color: #000 !important;
+    /* Better contrast on yellow/orange */
+    width: 100%;
+}
+
+.btn-primary:hover,
+.btn-success:hover {
+    background-color: #d49b3b !important;
+    color: #000 !important;
+}
+
+/* Form Controls */
+.form-control {
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+    padding: 0.75rem;
+}
+
+.form-control:focus {
+    border-color: var(--tg-theme-button-color, #eeb250);
+    box-shadow: 0 0 0 0.25rem rgba(238, 178, 80, 0.25);
+}
+
+/* List Group */
+.list-group-item {
+    border: none;
+    border-bottom: 1px solid #f0f0f0;
+    padding: 1rem;
+}
+
+.list-group-item:last-child {
+    border-bottom: none;
+}
+
+/* Switch Styling */
+.form-check-input:checked {
+    background-color: var(--tg-theme-button-color, #eeb250);
+    border-color: var(--tg-theme-button-color, #eeb250);
+}
+
+/* Loading */
+.loading-progress {
+    position: absolute;
+    display: block;
+    width: 4rem;
+    height: 4rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.loading-progress circle {
+    fill: none;
+    stroke: #e0e0e0;
+    stroke-width: 0.4rem;
+    stroke-linecap: round;
+    transform-origin: 50% 50%;
+}
+
+.loading-progress circle:last-child {
+    stroke: var(--tg-theme-button-color, #eeb250);
+    stroke-dasharray: calc(3.141 * var(--blazor-load-percentage, 0%) * 0.8), 500%;
+    transition: stroke-dasharray 0.05s ease-in-out;
+}
+
+/* Toast Notification */
+.toast-container {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    width: 90%;
+    max-width: 400px;
+}
+
+.toast-message {
+    background-color: #333;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    animation: slideDown 0.3s ease-out;
+}
+
+.toast-message.error {
+    background-color: #dc3545;
+}
+
+.toast-message.success {
+    background-color: #198754;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
